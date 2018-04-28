@@ -12,6 +12,7 @@ public class TongueBehaviour : MonoBehaviour {
 
 	bool retracting = false;
 	bool moving = false;
+	bool hitBasin = false;
 
 	public float moveSpeed = 0.02f;
 	public float tonguePieceTimer = 0.5f;
@@ -21,28 +22,32 @@ public class TongueBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown("Left")) {
-			moveDir = "Left";
-			Debug.Log("Left");
-		} else if (Input.GetButtonDown("Right")) {
-			moveDir = "Right";
-			Debug.Log("Right");
-		} else if (Input.GetButtonDown("Down")) {
 
-			if (!moving && !retracting) {
-				moving = true;
-				InvokeRepeating("PlacePiece", tonguePieceTimer, tonguePieceTimer);
-			}
+		if (!hitBasin) {
+			if (Input.GetButtonDown("Left")) {
+				moveDir = "Left";
+				Debug.Log("Left");
+			} else if (Input.GetButtonDown("Right")) {
+				moveDir = "Right";
+				Debug.Log("Right");
+			} else if (Input.GetButtonDown("Down")) {
 
-			moveDir = "Down";
-			Debug.Log("Down");
-		}
+				if (!moving && !retracting) {
+					moving = true;
+					InvokeRepeating("PlacePiece", tonguePieceTimer, tonguePieceTimer);
+				}
 
-		if (moving) {
-			if (Input.GetButtonDown("Retract")) {
 				moveDir = "Down";
-				Retract();
+				Debug.Log("Down");
 			}
+
+			if (moving) {
+				if (Input.GetButtonDown("Retract")) {
+					moveDir = "Down";
+					Retract();
+				}
+			}
+
 		}
 
 	}
@@ -66,6 +71,14 @@ public class TongueBehaviour : MonoBehaviour {
 
 		if (coll.GetComponent<EdibleBehaviour>() != null) {
 			_score.AddScore(coll.GetComponent<EdibleBehaviour>().Eat());
+			if (coll.GetComponent<AntPatrolBehaviour>() != null) {
+				AntPatrolBehaviour.antCounter--;
+				LevelManager.AntKilled();
+				Debug.Log(AntPatrolBehaviour.antCounter + " ants left");
+			}
+		} else if (coll.tag == "Ant Basin") {
+			hitBasin = true;
+			moveDir = "Down";
 		} else {
 			Retract();
 		}
@@ -73,6 +86,7 @@ public class TongueBehaviour : MonoBehaviour {
 
 
 	private void Retract() {
+		hitBasin = false;
 		moving = false;
 		CancelInvoke();
 		transform.position = originArea.transform.position;

@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour {
 
 	private int score = 0;
 	private float multiplier = 1;
-
+	
 	private void Awake() {
 		UpdateScore();
 	}

@@ -7,6 +7,7 @@ TagManager:
   - World
   - Powerup
   - Ants
+  - Ant Basin
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - 
   - Ants
   - World
-  - 
+  - Ant Basin
   - 
   - 
   - 
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Powerup
+    uniqueID: 1146220993
     locked: 0
