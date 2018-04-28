@@ -1,7 +1,5 @@
-# upm-package-template-2D
-Project Template for 2D scenes not using a SRP 
+# Pangolin Game Jam Project
 
-This template uses Unity’s built in rendering pipeline. This is a good starting point for developers looking to create 2D projects. 
+Project for Mohawk College Game Jam #1, April 2018.
 
-Package Name: com.unity.template.2d
-Package Version: 0.0.4
+Finished game had to somehow incorporate either the given sprite or 3D model of a //pangolin//. 

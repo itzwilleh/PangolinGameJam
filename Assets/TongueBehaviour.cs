@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class TongueBehaviour : MonoBehaviour {
 
+	public ScoreManager _score;
+
 	public GameObject originArea;
 	public GameObject tonguePiece;
 	//public BoxCollider2D coll;
 
+	bool retracting = false;
 	bool moving = false;
 
 	public float moveSpeed = 0.02f;
@@ -26,7 +29,7 @@ public class TongueBehaviour : MonoBehaviour {
 			Debug.Log("Right");
 		} else if (Input.GetButtonDown("Down")) {
 
-			if (!moving) {
+			if (!moving && !retracting) {
 				moving = true;
 				InvokeRepeating("PlacePiece", tonguePieceTimer, tonguePieceTimer);
 			}
@@ -44,8 +47,9 @@ public class TongueBehaviour : MonoBehaviour {
 
 	}
 
+
 	void FixedUpdate() {
-		if (moving) {
+		if (moving && !retracting) {
 			if (moveDir == "Left") {
 				transform.position += new Vector3(-moveSpeed, 0, 0);
 			} else if (moveDir == "Right") {
@@ -56,23 +60,32 @@ public class TongueBehaviour : MonoBehaviour {
 		}
 	}
 
+
 	void OnTriggerEnter2D(Collider2D coll) {
 		Debug.Log("Collided with: " + coll.transform.name);
 
 		if (coll.GetComponent<EdibleBehaviour>() != null) {
-			coll.GetComponent<EdibleBehaviour>().Eat();
+			_score.AddScore(coll.GetComponent<EdibleBehaviour>().Eat());
 		} else {
 			Retract();
 		}
 	}
 
+
 	private void Retract() {
 		moving = false;
 		CancelInvoke();
 		transform.position = originArea.transform.position;
+
+		for (int i = 0; i < tonguePieces.Count; i++) {
+			Destroy(tonguePieces[i]);
+		}
+
 		tonguePieces = new List<GameObject>();
 
+		_score.ResetMultiplier();
 	}
+
 
 	private void PlacePiece() {
 		GameObject newPiece = Instantiate(tonguePiece, transform.position, Quaternion.identity);
