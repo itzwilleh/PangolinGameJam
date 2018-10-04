@@ -3,15 +3,16 @@
 
 Project for Mohawk College Game Jam #1, April 2018. Finished game had to somehow incorporate either the given sprite or 3D model of a pangolin. 
 
+Code is pretty rough and void of comments; lots of attributes were public so they could be manually set in the inspector. Once a polished version of the game is ready, a link will be provided here to a separate git repo.
 
 
 __Work by__:
 
-Porsche Le - audio design, main menu
+[Porsche Le](https://github.com/PorscheLe7) - audio design, main menu
 
-[Evan Mulrooney](dog-eared.github.io/portfolio) - tongue mechanics, level management, ant movement 
+[Evan Mulrooney](https://dog-eared.github.io) - tongue mechanics, level management, ant movement 
 
-Jess Nguyen - timer, audio management
+[Jess Nguyen](https://github.com/Jess-Nguy) - timer, audio management
 
 William Nguyen - level design, tilemaps, main menu 
 
