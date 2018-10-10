@@ -28,4 +28,4 @@ Pangolin Movement
 
 
 
-[Link to GameJam version.](https://dog-eared.github.io/Pangolin_WebGL/Pangolin_WebGL/)
+[Link to GameJam version.](https://dog-eared.github.io/Pangolin_WebGL/)
