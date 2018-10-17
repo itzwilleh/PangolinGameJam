@@ -2,7 +2,7 @@
 
 **[Link to playable GameJam version.](https://dog-eared.github.io/Pangolin_WebGL/Pangolin_WebGL/)**
 
-![Screenshot of Pangolin Dinner](https://raw.githubusercontent.com/dog-eared/PangolinGameJam/Screenshot.png)
+![Screenshot of Pangolin Dinner](https://raw.githubusercontent.com/dog-eared/PangolinGameJam/master/Screenshot.png)
 
 Project for Mohawk College Game Jam #1, April 2018. Finished game had to somehow incorporate either the given sprite or 3D model of a pangolin. 
 
