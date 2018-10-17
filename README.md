@@ -37,6 +37,5 @@ William Nguyen - level design, tilemaps, main menu
 
 **Pangolin Movement** - we originally considered having the player move the pangolin between different ant nests, but was too far outside our core game loop to be feasible
 
-
-
+[Link to GameJam version.](https://dog-eared.github.io/Pangolin_WebGL/)
 
