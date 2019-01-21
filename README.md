@@ -25,7 +25,7 @@ Code is pretty rough and void of comments; lots of attributes were public so the
 
 [Jess Nguyen](https://github.com/Jess-Nguy) - timer, audio management
 
-William Nguyen - level design, tilemaps, main menu 
+William Nguyen(https://github.com/itzwilleh) - level design, tilemaps, main menu 
 
 ### Things that were cut:
 
