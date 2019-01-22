@@ -10,10 +10,15 @@ Code is pretty rough and void of comments; lots of attributes were public so the
 
 # Game Rules:
 1.) Player presses down button to drop the pangolin's tongue.
+
 2.) Player can use WASD to control the tongue to navigate the ant colony.
+
 3.) Pressing up forces the tongue to retract fully, as does touching a wall.
+
 4.) You get extra points for touching multiple ants at once.
+
 5.) The level is complete when you get all the ants.
+
 6.) If you run out of time, the game is over.
 
 
